@@ -2,32 +2,36 @@
   <app-editor-top
     [textAreaValue]="textAreaValue"
     [styles]="styles"
-    *ngIf="!addBoolean"
   ></app-editor-top>
   <app-editor-middle
-    (onEditBoolean)="onEditBoolean($event)"
-    (onStyleBoolean)="onStyleBoolean($event)"
+    (onEditBoolean)="onEditBoolean()"
+    (onStyleBoolean)="onStyleBoolean()"
     [editBoolean]="editBoolean"
-    *ngIf="!addBoolean"
+    (onBlockedBoolean)="blockedBoolean = true"
   ></app-editor-middle>
   <app-editor-bottom
     [editBoolean]="editBoolean"
     [finalEditValue]="finalEditValue"
-    (onSaveChanges)="saveChanges($event)"
+    (onSaveChanges)="saveChanges()"
     (onColor)="colorSet($event)"
     (onBackgroundColor)="backgroundColorSet($event)"
     (onFontSize)="fontSizeSet($event)"
     (onFontFamily)="fontFamilySet($event)"
     (onBoldText)="boldTextSet($event)"
     (onItalicText)="italicTextSet($event)"
-    (onEddBooleanSet)="addBoolean = !addBoolean"
-    *ngIf="!addBoolean"
-    ></app-editor-bottom>
-  <app-editor-add
-    *ngIf="addBoolean"
+    (onUnderLineText)="underLineTextSet($event)"
+    (onAddBooleanSet)="addBoolean = true; editBoolean = false; styleBoolean = false"
+    (onAddButtonValue)="addButtonValue($event)"
     [newTable]="newTable"
     (onTableSetValue)="addTable($event)"
     (onListSetValue)="addList($event)"
-  ></app-editor-add>
+    [addBoolean]="addBoolean"
+    [styleBoolean]="styleBoolean"
+    (onTest)="test($event)"
+    ></app-editor-bottom>
+  <app-blocked-window
+    *ngIf="blockedBoolean"
+    (onUnBlock)="blockedBoolean = false"
+    ></app-blocked-window>
 </div>
 

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {StyleObject} from "../app.component";
+import { StyleObject } from "../app.component";
 
 @Component({
   selector: 'app-editor-top',
@@ -8,7 +8,7 @@ import {StyleObject} from "../app.component";
 })
 export class EditorTopComponent implements OnInit {
   @Input() styles: StyleObject;
-  @Input() textAreaValue:string;
+  @Input() textAreaValue: string;
 
   constructor() { }
   ngOnInit(): void {}
